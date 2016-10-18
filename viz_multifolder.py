@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
 
-def makeGraph(folder, device, outpath):
+def makeGraph(folder, data_folder, outpath):
     """
     Given a folder containing data files, generate a matplotlib figure and
         save to a PNG file
@@ -50,7 +50,7 @@ def makeGraph(folder, device, outpath):
 
     # Set Title
     date = xtime[0].strftime('%m/%d/%Y')+" - "+xtime[-1].strftime('%m/%d/%Y')
-    f.suptitle("Device {} readings for {}".format(device, date), fontsize=18)
+    f.suptitle("{} readings for {}".format(data_folder, date), fontsize=18)
 
     # Set temperature data, title and labels
     temp_ax.plot_date(xtime, ytemp, linewidth=1, linestyle='-', color='b')
@@ -74,7 +74,7 @@ def makeGraph(folder, device, outpath):
 
     # Do not adjust the Pressure y-axis to scientific notation
     pres_ax.get_yaxis().get_major_formatter().set_useOffset(False)
-    f.savefig('{}dev{}.png'.format(outpath, device))
+    f.savefig('{}{}.png'.format(outpath, data_folder))
 
 
 if __name__== "__main__":
@@ -99,7 +99,7 @@ if __name__== "__main__":
     for data_folder in os.listdir(all_data_folders):
         data_folder_path = all_data_folders + data_folder + '/'
         try: # succeeds if 'datafolder' is a folder
-            makeGraph(data_folder_path, dev_num, output_path);
+            makeGraph(data_folder_path, data_folder, output_path);
             dev_num += 1
         except Exception as e: # 'datafolder' was a file
             print e
