@@ -81,6 +81,9 @@ Device 11 & 12
 
 Device 3 did not function upon arrival to the location. Device 4 failed to produce any data when the SD card was read. There is no data associated with the entry for Device 3 & 4, though the metadata is preserved for records.
 
+The location of device 11 & 12 is unique because of its proximity to the north reservoir. As such, one can observe that for this location max temperature is lower, and relative humidity is higher.
+
+Battery life on the devices proved to be only about 10 hours. Tests on the devices showed that they could function for 22 hours, however a different type of battery was used during the trip.
 
 # Staff
 * Michael Garod, Computer Science Major
